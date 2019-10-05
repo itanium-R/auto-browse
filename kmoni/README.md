@@ -7,7 +7,7 @@
     - time
     - subprocess
 - seleniumのchrome用ドライバをダウンロードし
-  パスを6行目のDRIVER_PATHに格納してください。
+  パスを5行目のDRIVER_PATHに格納してください。
 
 ## 実行方法
 ```
