@@ -3,10 +3,9 @@
 ## 準備
 
 - 実行には以下のパッケージが必要です。
- - selenium import webdriver
- - time
- - subprocess
-
+    - selenium import webdriver
+    - time
+    - subprocess
 - seleniumのchrome用ドライバをダウンロードし
   パスを6行目のDRIVER_PATHに格納してください。
 
