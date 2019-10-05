@@ -1,4 +1,3 @@
-# browser_auto_foods.py
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import time
