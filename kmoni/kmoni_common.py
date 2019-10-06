@@ -2,8 +2,9 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import time
 import subprocess
+import jtalk
 
-def uttr(chrome,text):
+def uttr_websp(chrome,text):
   if text:
     print(text)  
     chrome.switch_to.window(chrome.window_handles[1])
@@ -12,7 +13,7 @@ def uttr(chrome,text):
     chrome.find_element_by_id("uttrBtn").click()
     chrome.switch_to.window(chrome.window_handles[0])
 
-def listenEEW(chrome):
+def listenEEW(chrome,uttr_way):
   while 1:
     time.sleep(1)
     text = chrome.find_element_by_id("main-message").text
@@ -60,6 +61,10 @@ def listenEEW(chrome):
         if buf_depth != depth:
           ut_text += " 深さ" + depth
           buf_depth = depth
-        
-        uttr(chrome,ut_text)
-  
+
+        if uttr_way == "jtalk":
+          jtalk.jtalk(ut_text)
+        elif uttr_way == "websp":
+          uttr_websp(chrome,ut_text)
+        else:
+          print("invalid utter way")

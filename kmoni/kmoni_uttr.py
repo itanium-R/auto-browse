@@ -21,6 +21,6 @@ def main():
   chrome.get(url_ut)
   chrome.switch_to.window(chrome.window_handles[0])
 
-  kmoni_common.listenEEW(chrome)
+  kmoni_common.listenEEW(chrome,"websp")
   
 main()

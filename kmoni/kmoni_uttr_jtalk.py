@@ -10,6 +10,6 @@ def main():
   chrome  = webdriver.Chrome(DRIVER_PATH)
   url_km  = "http://www.kmoni.bosai.go.jp/"
   chrome.get(url_km)
-  kmoni_common.listenEEW(chrome)
+  kmoni_common.listenEEW(chrome,"jtalk")
 
 main()
