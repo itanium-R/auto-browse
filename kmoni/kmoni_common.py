@@ -60,7 +60,7 @@ def listenEEW(chrome,ut_way):
         ut_text= ""
 
         if buf_shindo != shindo:
-          ut_text += " 最大震度" + shindo
+          ut_text += "最大震度" + shindo
           buf_shindo = shindo
         
         if buf_mag != mag:
