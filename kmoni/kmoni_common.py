@@ -13,7 +13,16 @@ def uttr_websp(chrome,text):
     chrome.find_element_by_id("uttrBtn").click()
     chrome.switch_to.window(chrome.window_handles[0])
 
-def listenEEW(chrome,uttr_way):
+def uttr(ut_text,ut_way,chrome):  
+  if ut_way == "jtalk":
+    jtalk.jtalk(ut_text)
+  elif ut_way == "websp":
+    uttr_websp(chrome,ut_text)
+  else:
+    print("invalid utter way")
+
+
+def listenEEW(chrome,ut_way):
   while 1:
     time.sleep(1)
     text = chrome.find_element_by_id("main-message").text
@@ -24,7 +33,7 @@ def listenEEW(chrome,uttr_way):
       ut_text += chrome.find_element_by_id("map-message-sindo-value").text
       ut_text += "の地震発生。"
       # ut_text += chrome.find_element_by_id("map-message-value").text
-      uttr(chrome,ut_text)
+      uttr(ut_text,ut_way,chrome)
       buf_shindo = ""
       buf_mag    = ""
       buf_depth  = ""
@@ -61,10 +70,4 @@ def listenEEW(chrome,uttr_way):
         if buf_depth != depth:
           ut_text += " 深さ" + depth
           buf_depth = depth
-
-        if uttr_way == "jtalk":
-          jtalk.jtalk(ut_text)
-        elif uttr_way == "websp":
-          uttr_websp(chrome,ut_text)
-        else:
-          print("invalid utter way")
+          uttr(ut_text,ut_way,chrome)
