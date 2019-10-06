@@ -60,14 +60,14 @@ def listenEEW(chrome,ut_way):
         ut_text= ""
 
         if buf_shindo != shindo:
-          ut_text += "最大震度" + shindo
+          ut_text += "最大震度" + shindo + " "
           buf_shindo = shindo
         
         if buf_mag != mag:
-          ut_text += " マグニチュード" + mag
+          ut_text += "マグニチュード" + mag + " "
           buf_mag = mag
         
         if buf_depth != depth:
-          ut_text += " 深さ" + depth
+          ut_text += "深さ" + depth + " "
           buf_depth = depth
           uttr(ut_text,ut_way,chrome)
