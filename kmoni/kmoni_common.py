@@ -70,4 +70,5 @@ def listenEEW(chrome,ut_way):
         if buf_depth != depth:
           ut_text += "深さ" + depth + " "
           buf_depth = depth
-          uttr(ut_text,ut_way,chrome)
+
+        uttr(ut_text,ut_way,chrome)
