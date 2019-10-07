@@ -12,8 +12,8 @@ def uttr_websp(chrome,text):
   chrome.switch_to.window(chrome.window_handles[0])
 
 def uttr(ut_text,ut_way,chrome):
-  if text:  
-    print(text)  
+  if ut_text:  
+    print(ut_text)  
     if ut_way == "jtalk":
       jtalk.jtalk(ut_text)
     elif ut_way == "websp":
