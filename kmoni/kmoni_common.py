@@ -5,21 +5,21 @@ import subprocess
 import jtalk
 
 def uttr_websp(chrome,text):
-  if text:
-    print(text)  
-    chrome.switch_to.window(chrome.window_handles[1])
-    chrome.find_element_by_id("text").clear()
-    chrome.find_element_by_id("text").send_keys(text)
-    chrome.find_element_by_id("uttrBtn").click()
-    chrome.switch_to.window(chrome.window_handles[0])
+  chrome.switch_to.window(chrome.window_handles[1])
+  chrome.find_element_by_id("text").clear()
+  chrome.find_element_by_id("text").send_keys(text)
+  chrome.find_element_by_id("uttrBtn").click()
+  chrome.switch_to.window(chrome.window_handles[0])
 
-def uttr(ut_text,ut_way,chrome):  
-  if ut_way == "jtalk":
-    jtalk.jtalk(ut_text)
-  elif ut_way == "websp":
-    uttr_websp(chrome,ut_text)
-  else:
-    print("invalid utter way")
+def uttr(ut_text,ut_way,chrome):
+  if text:  
+    print(text)  
+    if ut_way == "jtalk":
+      jtalk.jtalk(ut_text)
+    elif ut_way == "websp":
+      uttr_websp(chrome,ut_text)
+    else:
+      print("invalid utter way")
 
 
 def listenEEW(chrome,ut_way):

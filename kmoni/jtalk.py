@@ -3,7 +3,6 @@
 import subprocess
 
 def jtalk(t):
-    print(t)
     open_jtalk=['open_jtalk']
     mech=['-x','/var/lib/mecab/dic/open-jtalk/naist-jdic']
     htsvoice=['-m','/usr/share/hts-voice/mei/mei_normal.htsvoice']
