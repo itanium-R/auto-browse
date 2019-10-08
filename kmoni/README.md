@@ -12,7 +12,7 @@
   - selenium
   - time
   - subprocess
-- seleniumのchrome用ドライバをダウンロードし、
+- [seleniumのchrome用ドライバをダウンロード](https://sites.google.com/a/chromium.org/chromedriver/downloads)し、
   `kmoni_uttr.py` あるいは `kmoni_uttr_jtalk.py` 内の
   'DRIVER_PATH' にパスを格納してください。
 - Open JTalk 版を利用する場合
