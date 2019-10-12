@@ -3,6 +3,7 @@ from selenium.webdriver.common.keys import Keys
 import time
 import subprocess
 import jtalk
+import pi_led
 
 def uttr_websp(chrome,text):
   chrome.switch_to.window(chrome.window_handles[1])
@@ -22,11 +23,15 @@ def uttr(ut_text,ut_way,chrome):
       print("invalid utter way")
 
 
-def listenEEW(chrome,ut_way):
+def listenEEW(chrome,ut_way,pi_GPIO=0):
+  if(pi_GPIO>0):
+    pi_led.flash(pi_GPIO,1)
   while 1:
     time.sleep(1)
     text = chrome.find_element_by_id("main-message").text
     if text:
+      if(pi_GPIO>0):
+        pi_led.flash(pi_GPIO,7)
       area = chrome.find_element_by_id("map-message-area").text
       ut_text  = buf_area = area
       ut_text += "で最大震度"
@@ -58,6 +63,9 @@ def listenEEW(chrome,ut_way):
         mag    = chrome.find_element_by_id("map-message-mag-value").text
         depth  = chrome.find_element_by_id("map-message-depth-value").text
         ut_text= ""
+        
+        if(pi_GPIO>0):
+          pi_led.flash(pi_GPIO,int(shindo[:1]))
 
         if buf_shindo != shindo:
           ut_text += "最大震度" + shindo + " "
